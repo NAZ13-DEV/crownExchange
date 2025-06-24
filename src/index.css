@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer utilities {
+  .text-customGreen {
+    @apply text-emerald-400;
+  }
+
+  .bg-customGreen {
+    @apply bg-emerald-600;
+  }
+
+  .text-customRed {
+    @apply text-red-400;
+  }
+
+  .bg-customRed {
+    @apply bg-red-600;
+  }
+
+  .border-customGreen {
+    @apply border-emerald-600;
+  }
+
+  .border-customRed {
+    @apply border-red-600;
+  }
+}
+
+
+
+@layer base {
+    html {
+      font-family: Arial, sans-serif;
+    }
+  }
+
+@layer components {
+  .forex-form-theme {
+    @apply bg-[#050A1D] bg-gradient-to-br from-emerald-400/10 via-emerald-500/20 to-transparent p-4 rounded-xl text-white;
+  }
+
+  .forex-form-theme input,
+  .forex-form-theme select,
+  .forex-form-theme textarea {
+    @apply bg-[#0a1227] border border-emerald-600 text-white placeholder-gray-400 rounded-md px-3 py-2 w-full outline-none focus:ring-2 focus:ring-emerald-500;
+  }
+
+  .forex-form-theme select option {
+    @apply bg-[#0a1227] text-white;
+  }
+
+  .forex-form-theme button {
+    @apply px-4 py-2 font-semibold transition-all duration-300 rounded-md;
+  }
+
+  /* Specific color overrides */
+  .forex-form-theme .buy-header {
+    @apply text-customGreen;
+  }
+
+  .forex-form-theme .sell-header {
+    @apply text-customRed;
+  }
+
+  .forex-form-theme .buy-button {
+    @apply text-white bg-customGreen hover:bg-emerald-500;
+  }
+
+  .forex-form-theme .sell-button {
+    @apply text-white bg-customRed hover:bg-red-400;
+  }
+
+  .forex-form-theme .buy-border {
+    @apply border-customGreen;
+  }
+
+  .forex-form-theme .sell-border {
+    @apply border-customRed;
+  }
+}
+
+
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #00b3b3 #0a0f1a; /* thumb | track for Firefox */
+  }
+  
+  /* Chrome, Edge, Safari */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #0a0f1a;
+    border-radius: 9999px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #047474, #007777);
+    border-radius: 9999px;
+    border: 2px solid transparent; /* optional spacing */
+    background-clip: content-box;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+  }
+  
+
+  @keyframes marqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Keeps looping left */
+  }
+  
+  @keyframes marqueeRight {
+    0% { transform: translateX(-50%); } /* Start from left half */
+    100% { transform: translateX(0); }   /* End at normal position */
+  }
+  
+  .animate-marquee-left {
+    animation: marqueeLeft 25s linear infinite;
+  }
+  
+  .animate-marquee-right {
+    animation: marqueeRight 25s linear infinite;
+  }
+
+  
+  @keyframes line-slide {
+    0% {
+      left: 0%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  .animate-line-slide {
+    animation: line-slide 0.5s linear infinite;
+  }
+  
+  
+  .autoBLur {
+    filter: blur(10px);
+    transition: filter 0.8s ease-out;
+    opacity: 0.2;
+  }
+  
+  .autoBLur.show {
+    filter: blur(0);
+    opacity: 1;
+  }
+  
+  /* Remove arrows in Chrome, Safari, Edge */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove arrows in Firefox */
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+option {
+  @apply text-sm md:text-base lg:text-lg;
+}
+select {
+  @apply text-sm md:text-base lg:text-lg;
+}
+
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-login {
+  background-image: url(./img/login_bg.png);
+}
+
+/* Custom scrollbar for notification dropdown */
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #14b8a6; /* tailwind teal-500 */
+  border-radius: 10px;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #0f766e; /* darker teal */
+}
+
+
+
+@media (max-width: 768px) {
+  .custom-scrollbar-x::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .custom-scrollbar-x::-webkit-scrollbar-track {
+    background: rgba(16, 185, 129, 0.1); /* emerald-500/10 */
+    border-radius: 8px;
+  }
+
+  .custom-scrollbar-x::-webkit-scrollbar-thumb {
+    background-color: #10B981; /* emerald-500 */
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .custom-scrollbar-x {
+    scrollbar-color: #10B981 rgba(16, 185, 129, 0.1); /* Firefox */
+    scrollbar-width: auto;
+  }
+}
+input,
+form,
+select {
+  border-radius: 0.75rem; /* Tailwind's rounded-lg = 0.5rem */
+}
