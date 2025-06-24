@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host",
     "prebuild": "chmod +x node_modules/.bin/vite",
-    "build": "vite build",
+    "build": "ls -l node_modules/vite/dist/node/cli.js && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -36,7 +36,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.56.1",
     "react-hot-toast": "^2.5.2",
-    "react-icons": "^5.5.0",
+    "react-icons": "^5. EDS5.0",
     "react-phone-input-2": "^2.15.1",
     "react-plotly.js": "^2.6.0",
     "react-redux": "^9.2.0",
@@ -44,7 +44,8 @@
     "react-toastify": "^11.0.5",
     "tailwind-scrollbar": "^3.1.0",
     "world-countries": "^5.1.0",
-    "yup": "^1.6.1"
+    "yup": "^1.6.1",
+    "vite": "5.4.19"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -58,7 +59,6 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17",
-    "vite": "^5.4.19"
+    "tailwindcss": "^3.4.17"
   }
 }
