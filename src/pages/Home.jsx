@@ -1,4 +1,3 @@
-
 import BrokersSection from '../components/BrokerSection';
 // import Chart from '../components/Chart';
 import ContactUs from '../components/ContactUs';
@@ -18,26 +17,24 @@ import Heroes from './Heroes';
 const Home = () => {
   return (
     <>
-    <Navbar  />
-    <div className='min-h-screen overflow-x-hidden text-white bg-[#101014] '>
-      <Heroes />
-
-      <div className="bg-[#101014]">
-      {/* <Chart /> */}
-      <Performance/>
-      <ProfitLoss />
-      <Trader/>
-      <FeatureShowcase />
-      <BrokersSection />
-      <WhyChooseUs />
-      <PricingSection/>
-      <FeatureSection />
-      <Faq/>
-      <ContactUs/>
-      <Footer/>
-      {/* <WhatsAppButton/> */}
+      <Navbar />
+      <div className="min-h-screen overflow-x-hidden text-white bg-[#101014]">
+        <Heroes />
+        <div className="bg-[#181A20]">
+          <WhyChooseUs />
+          <FeatureShowcase />
+          <Performance />
+          <ProfitLoss />
+          <FeatureSection />
+          <BrokersSection />
+          <PricingSection />
+          <Trader />
+          <Faq />
+          <ContactUs />
+          <Footer />
+          {/* <WhatsAppButton /> */}
+        </div>
       </div>
-    </div>
     </>
   );
 };

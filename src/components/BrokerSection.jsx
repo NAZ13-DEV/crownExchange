@@ -36,34 +36,35 @@ const rowLogos = [
 
 const BrokersSection = () => {
   return (
-    <div className="relative w-full overflow-hidden bg-[#101014]">
+    <div className="relative w-full overflow-hidden bg-[#101014] py-12 sm:py-16 md:py-20 lg:py-24">
       {/* Glowing Right Circle */}
       <div
         className="absolute top-0 -right-[15rem] z-0 h-full pointer-events-none w-[50rem]"
         style={{
           background:
-            "radial-gradient(circle, rgba(247, 166, 0, 0.5) 0%, rgba(99, 102, 241, 0) 80%)", // Muted yellow-orange glow
+            "radial-gradient(circle, rgba(247, 166, 0, 0.5) 0%, rgba(99, 102, 241, 0) 80%)",
           filter: "blur(60px)",
           borderRadius: "9999px",
         }}
       />
 
       {/* Section Content */}
-      <div className="relative z-10 px-4 py-16 mx-auto md:px-24 lg:px-8 lg:py-20">
-        <div className="flex flex-col items-center mb-10 text-center">
-          <p className="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-            Connect with over 1,200+ brokers
+      <div className="relative z-10 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 lg:px-12">
+        {/* Title Section */}
+        <div className="mb-8 text-center sm:mb-10 md:mb-12 lg:mb-16">
+          <h2 className="mb-3 text-3xl font-extrabold text-white sm:text-4xl md:text-5xl sm:mb-4">
+            <span className="bg-clip-text bg-gradient-to-r from-yellow-600 to-indigo-600 animate-gradient-x">
+              Trade with 1,200+ Top Brokers
+            </span>
+          </h2>
+          <p className="max-w-2xl mx-auto text-base text-gray-400 sm:text-lg md:text-xl lg:text-2xl">
+            Discover trusted brokers, read reviews, and engage with their communities effortlessly.
           </p>
-          <p className="text-xl text-gray-400 sm:text-2xl">
-            Explore their reviews · Access and browse their forums
-          </p>
-
-          <div className="flex items-center justify-center gap-3 pt-6 animate-pulse">
+          <div className="flex items-center justify-center gap-2 pt-4 sm:gap-3 sm:pt-6 animate-pulse-slow">
             {[1, 2, 3, 4, 5].map((i) => {
-              let sizeClass = "w-8 h-8 sm:w-10 sm:h-10";
-              if (i === 2 || i === 4) sizeClass = "w-10 h-10 sm:w-12 sm:h-12";
-              if (i === 3) sizeClass = "w-12 h-12 sm:w-14 sm:h-14";
-
+              let sizeClass = "w-6 h-6 sm:w-8 sm:h-8";
+              if (i === 2 || i === 4) sizeClass = "w-8 h-8 sm:w-10 sm:h-10";
+              if (i === 3) sizeClass = "w-10 h-10 sm:w-12 sm:h-12";
               return (
                 <svg
                   key={i}
@@ -72,7 +73,7 @@ const BrokersSection = () => {
                   fill="none"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className={`text-yellow-600 ${sizeClass}`}
+                  className={`text-yellow-600 ${sizeClass} transition-transform duration-300 hover:scale-110`}
                 >
                   <path
                     strokeLinecap="round"
@@ -86,11 +87,14 @@ const BrokersSection = () => {
         </div>
 
         {/* Infinite Logo Sliders */}
-        <div>
+        <div className="space-y-4 sm:space-y-6">
           {rowLogos.map((logos, rowIndex) => (
-            <div key={rowIndex} className="relative w-full overflow-hidden">
+            <div
+              key={rowIndex}
+              className="relative w-full overflow-hidden rounded-lg"
+            >
               <div
-                className={`flex w-max  ${
+                className={`flex w-max items-center ${
                   rowIndex % 2 === 0
                     ? "animate-marquee-left"
                     : "animate-marquee-right"
@@ -99,12 +103,12 @@ const BrokersSection = () => {
                 {[...logos, ...logos].map((logo, i) => (
                   <div
                     key={`${rowIndex}-${i}`}
-                    className="flex items-center justify-center px-6 py-2 sm:px-10 lg:px-14 sm:py-4 bg-indigo-900/20 backdrop-blur-lg"
+                    className="flex items-center justify-center px-4 py-2 mx-2 transition-all duration-300 rounded-md sm:px-6 md:px-8 lg:px-10 sm:py-3 bg-indigo-900/20 backdrop-blur-lg sm:mx-3 hover:scale-105 hover:shadow-lg hover:bg-indigo-900/30"
                   >
                     <img
                       src={logo}
                       alt={`Broker ${i}`}
-                      className="object-contain w-24 h-auto rounded-md sm:w-28 md:w-32 lg:w-36"
+                      className="object-contain w-20 h-auto transition-transform duration-300 rounded-sm sm:w-24 md:w-28 lg:w-32"
                     />
                   </div>
                 ))}
@@ -113,6 +117,61 @@ const BrokersSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Custom Animations */}
+      <style >{`
+        @keyframes marquee-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        @keyframes marquee-right {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        .animate-marquee-left {
+          animation: marquee-left 20s linear infinite;
+        }
+        .animate-marquee-right {
+          animation: marquee-right 20s linear infinite;
+        }
+        @keyframes pulse-slow {
+          0% {
+            opacity: 0.8;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.1);
+          }
+          100% {
+            opacity: 0.8;
+            transform: scale(1);
+          }
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 3s ease-in-out infinite;
+        }
+        @keyframes gradient-x {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 200% 50%;
+          }
+        }
+        .animate-gradient-x {
+          background-size: 200% 100%;
+          animation: gradient-x 5s linear infinite;
+        }
+      `}</style>
     </div>
   );
 };

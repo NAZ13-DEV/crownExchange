@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
             Why Choose Us
           </h2>
           <p className="max-w-3xl mx-auto mt-3 text-sm text-gray-300 sm:text-base md:text-lg lg:text-xl">
-            Experience Crown Exchange's global reach with cutting-edge platforms and unmatched reliability.
+           { `Experience Crown Exchange's global reach with cutting-edge platforms and unmatched reliability.`}
           </p>
         </div>
 
@@ -114,7 +114,7 @@ const WhyChooseUs = () => {
       </div>
 
       {/* Custom Animations */}
-      <style jsx>{`
+      <style >{`
         @keyframes gradient-x {
           0% {
             background-position: 0% 50%;
