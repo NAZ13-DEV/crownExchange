@@ -6,15 +6,37 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-node_modules
 
+# Node.js
+node_modules
 dist
 dist-ssr
-*.local
+.env
+.env.*
+!.env.example
+.vercel
+
+# Java/Maven
+target/
+*.jar
+*.war
+*.ear
+.mvn/
+mvnw
+mvnw.cmd
+pom.xml.versionsBackup
+
+# Java/Gradle
+build/
+.gradle/
+gradlew
+gradlew.bat
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
 .idea
 .DS_Store
 *.suo
